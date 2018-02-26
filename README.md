@@ -1,5 +1,5 @@
 # album-creator.py
-Creates video from mp3 files + logo pic for youtube upload.
+Creates video from mp3 files + logo pic for youtube upload. [Example](https://youtu.be/LBr9fia4HOk).
 ### Libs used:
 * [moviepy](https://github.com/Zulko/moviepy)
 * [mp3-tagger](https://github.com/artcom-net/mp3-tagger)
