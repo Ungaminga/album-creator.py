@@ -16,9 +16,9 @@ def edit_timing_output(number, name):
     if re.match('^\d*\.', name) == None:
         text = str(number)+". "+ text
     if current_time//3600 > 1:
-        print(text+current_time//3600)
+        print(text+"%d:%02d:%02d"%(current_time//3600, current_time%3600, current_time%60))
     else:
-        print(text+"%02d"%(current_time//60)+":%02d"%(current_time%60))
+        print(text+"%02d:%02d"%(current_time//60, current_time%60))
 
 def get_name_for_track(file):
     return MP3File(dir+os.sep+file).get_tags()['ID3TagV1']['song'] or file
@@ -56,7 +56,7 @@ if len(sys.argv) > 2:
 aa = concatenate_audioclips(tracks)
 im = ImageClip(album, duration=aa.duration)
 im.audio = aa
-im.write_videofile(output, fps=24)
+#im.write_videofile(output, fps=24)
 
 del tracks[:]
 del aa
