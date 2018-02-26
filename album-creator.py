@@ -9,12 +9,16 @@ from moviepy.editor import *
 import sys, os
 import natsort
 from mp3_tagger import MP3File
+import re
 
 def edit_timing_output(number, name):
+    text = name+" - "
+    if re.match('^\d*\.', name) == None:
+        text = str(number)+". "+ text
     if current_time//3600 > 1:
-        print(str(number)+". "+name+" - "+current_time//3600)
+        print(text+current_time//3600)
     else:
-        print(str(number)+". "+name+" - "+"%02d"%(current_time//60)+":%02d"%(current_time%60))
+        print(text+"%02d"%(current_time//60)+":%02d"%(current_time%60))
 
 def get_name_for_track(file):
     return MP3File(dir+os.sep+file).get_tags()['ID3TagV1']['song'] or file
