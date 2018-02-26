@@ -56,7 +56,7 @@ if len(sys.argv) > 2:
 aa = concatenate_audioclips(tracks)
 im = ImageClip(album, duration=aa.duration)
 im.audio = aa
-#im.write_videofile(output, fps=24)
+im.write_videofile(output, fps=24)
 
 del tracks[:]
 del aa
