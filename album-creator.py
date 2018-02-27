@@ -11,7 +11,7 @@ import natsort
 from mp3_tagger import MP3File
 import re
 
-def edit_timing_output(number, name):
+def print_timing_output(number, name):
     text = name+" - "
     if re.match('^\d*\.', name) == None:
         text = str(number)+". "+ text
@@ -31,8 +31,6 @@ ld = natsort.natsorted(os.listdir(dir))
 
 album = ''
 tracks = []
-
-output = ''
 current_time = 0
 number = 1
 
@@ -45,7 +43,7 @@ for file in ld:
             f = dir+os.sep+file
             a = AudioFileClip(f)
             tracks.append(a)
-            edit_timing_output(number, get_name_for_track(file))
+            print_timing_output(number, get_name_for_track(file))
             number = number+1
             current_time+=a.duration//1
 
